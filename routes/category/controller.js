@@ -8,10 +8,13 @@ module.exports = {
         throw err;
       }
       if (authData.user.isAdmin ){
+        console.log('req--------------', req.files)
         const category = {
           title: req.body.title,
-          image: req.file.path.slice(16)
+          image:req.files.image[0].path.slice(16),
+          icon: req.files.icon[0].path.slice(16)
         }
+
         CourseCategory
           .create(category)
           .then(result => {

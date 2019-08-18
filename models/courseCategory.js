@@ -14,6 +14,9 @@ CourseCategory.init({
   },
   image:{
     type: Sequelize.STRING(250)
+  },
+  icon:{
+    type: Sequelize.STRING(250)
   }
 }, {
   freezeTableName: true,

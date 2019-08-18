@@ -5,7 +5,13 @@ var multerUpload = require('../../config/file-upload');
 var route = require('./controller');
 
 // Create
-app.post('/',verifyToken, multerUpload.single('image'), route.create)
+app.post('/',verifyToken,
+multerUpload.fields([{
+    name: 'icon', maxCount: 1
+},{
+    name: 'image', maxCount: 1
+  }, 
+  ]), route.create)
 
 // Read all
 app.get('/',  route.getAll)
